@@ -16,30 +16,30 @@
 //
 // ---
 //
-// Equipment item lookup service definition
+// Equipments service definition
 syntax = "proto3";
 
-option go_package = "github.com/diyerdo/proto/go/equipment_item_lookup/v1;equipment_item_lookup";
+option go_package = "github.com/diyerdo/proto/go/equipments/v1;equipments";
 
 // EquipmentItemLookupService is the service for equipment item lookup
-service EquipmentItemLookupService {
+service EquipmentsService {
   // Returns the equipment item from the name and category
-  rpc GetEquipmentItemFromNameAndCategory(GetEquipmentItemFromNameAndCategoryRequest) returns (GetEquipmentItemFromNameAndCategoryResponse);
+  rpc GetEquipmentFromNameAndCategory(GetEquipmentFromNameAndCategoryRequest) returns (GetEquipmentFromNameAndCategoryResponse);
 }
 
 // EquipmentItemCategory represents the category of the equipment item to look up
-enum EquipmentItemCategory {
-  EQUIPMENT_ITEM_CATEGORY_UNSPECIFIED = 0;
-  EQUIPMENT_ITEM_CATEGORY_BOOTS = 1;
+enum EquipmentCategory {
+  EQUIPMENT_CATEGORY_UNSPECIFIED = 0;
+  EQUIPMENT_CATEGORY_BOOTS = 1;
 }
 
-message EquipmentItem {}
+message Equipment {}
 
-message GetEquipmentItemFromNameAndCategoryRequest {
+message GetEquipmentFromNameAndCategoryRequest {
   string name = 1;
-  EquipmentItemCategory category = 2;
+  EquipmentCategory category = 2;
 }
 
-message GetEquipmentItemFromNameAndCategoryResponse {
-  optional EquipmentItem equipment_item = 1;
+message GetEquipmentFromNameAndCategoryResponse {
+  optional Equipment equipment_item = 1;
 }

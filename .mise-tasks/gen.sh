@@ -26,4 +26,4 @@ protoc \
   --go-grpc_out=gen/go \
   --go_opt=paths=source_relative \
   --go-grpc_opt=paths=source_relative \
-  proto/equipment_item_lookup/v1/equipment_item_lookup.proto
+  proto/equipments/v1/equipments.proto
