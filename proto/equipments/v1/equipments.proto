@@ -33,7 +33,12 @@ enum EquipmentCategory {
   EQUIPMENT_CATEGORY_BOOTS = 1;
 }
 
-message Equipment {}
+message Equipment {
+  int32 id = 1;
+  string name = 2;
+  int32 level = 3;
+  string icon = 4;
+}
 
 message GetEquipmentFromNameAndCategoryRequest {
   string name = 1;
