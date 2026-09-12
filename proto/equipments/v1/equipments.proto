@@ -37,7 +37,7 @@ message Equipment {
   int32 id = 1;
   string name = 2;
   int32 level = 3;
-  string icon = 4;
+  string icon_url = 4;
 }
 
 message GetEquipmentFromNameAndCategoryRequest {
