@@ -30,7 +30,16 @@ service EquipmentsService {
 // EquipmentItemCategory represents the category of the equipment item to look up
 enum EquipmentCategory {
   EQUIPMENT_CATEGORY_UNSPECIFIED = 0;
-  EQUIPMENT_CATEGORY_BOOTS = 1;
+  EQUIPMENT_CATEGORY_AMULET = 1;
+  EQUIPMENT_CATEGORY_BELT = 2;
+  EQUIPMENT_CATEGORY_BOOTS = 3;
+  EQUIPMENT_CATEGORY_CLOAK = 4;
+  EQUIPMENT_CATEGORY_DOFUS = 5;
+  EQUIPMENT_CATEGORY_HAT = 6;
+  EQUIPMENT_CATEGORY_PET = 7;
+  EQUIPMENT_CATEGORY_RING = 8;
+  EQUIPMENT_CATEGORY_SHIELD = 9;
+  EQUIPMENT_CATEGORY_WEAPON = 10;
 }
 
 // Equipment represents an equipment item

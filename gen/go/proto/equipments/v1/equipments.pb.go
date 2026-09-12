@@ -46,18 +46,45 @@ type EquipmentCategory int32
 
 const (
 	EquipmentCategory_EQUIPMENT_CATEGORY_UNSPECIFIED EquipmentCategory = 0
-	EquipmentCategory_EQUIPMENT_CATEGORY_BOOTS       EquipmentCategory = 1
+	EquipmentCategory_EQUIPMENT_CATEGORY_AMULET      EquipmentCategory = 1
+	EquipmentCategory_EQUIPMENT_CATEGORY_BELT        EquipmentCategory = 2
+	EquipmentCategory_EQUIPMENT_CATEGORY_BOOTS       EquipmentCategory = 3
+	EquipmentCategory_EQUIPMENT_CATEGORY_CLOAK       EquipmentCategory = 4
+	EquipmentCategory_EQUIPMENT_CATEGORY_DOFUS       EquipmentCategory = 5
+	EquipmentCategory_EQUIPMENT_CATEGORY_HAT         EquipmentCategory = 6
+	EquipmentCategory_EQUIPMENT_CATEGORY_PET         EquipmentCategory = 7
+	EquipmentCategory_EQUIPMENT_CATEGORY_RING        EquipmentCategory = 8
+	EquipmentCategory_EQUIPMENT_CATEGORY_SHIELD      EquipmentCategory = 9
+	EquipmentCategory_EQUIPMENT_CATEGORY_WEAPON      EquipmentCategory = 10
 )
 
 // Enum value maps for EquipmentCategory.
 var (
 	EquipmentCategory_name = map[int32]string{
-		0: "EQUIPMENT_CATEGORY_UNSPECIFIED",
-		1: "EQUIPMENT_CATEGORY_BOOTS",
+		0:  "EQUIPMENT_CATEGORY_UNSPECIFIED",
+		1:  "EQUIPMENT_CATEGORY_AMULET",
+		2:  "EQUIPMENT_CATEGORY_BELT",
+		3:  "EQUIPMENT_CATEGORY_BOOTS",
+		4:  "EQUIPMENT_CATEGORY_CLOAK",
+		5:  "EQUIPMENT_CATEGORY_DOFUS",
+		6:  "EQUIPMENT_CATEGORY_HAT",
+		7:  "EQUIPMENT_CATEGORY_PET",
+		8:  "EQUIPMENT_CATEGORY_RING",
+		9:  "EQUIPMENT_CATEGORY_SHIELD",
+		10: "EQUIPMENT_CATEGORY_WEAPON",
 	}
 	EquipmentCategory_value = map[string]int32{
 		"EQUIPMENT_CATEGORY_UNSPECIFIED": 0,
-		"EQUIPMENT_CATEGORY_BOOTS":       1,
+		"EQUIPMENT_CATEGORY_AMULET":      1,
+		"EQUIPMENT_CATEGORY_BELT":        2,
+		"EQUIPMENT_CATEGORY_BOOTS":       3,
+		"EQUIPMENT_CATEGORY_CLOAK":       4,
+		"EQUIPMENT_CATEGORY_DOFUS":       5,
+		"EQUIPMENT_CATEGORY_HAT":         6,
+		"EQUIPMENT_CATEGORY_PET":         7,
+		"EQUIPMENT_CATEGORY_RING":        8,
+		"EQUIPMENT_CATEGORY_SHIELD":      9,
+		"EQUIPMENT_CATEGORY_WEAPON":      10,
 	}
 )
 
@@ -272,10 +299,20 @@ const file_proto_equipments_v1_equipments_proto_rawDesc = "" +
 	"\bcategory\x18\x02 \x01(\x0e2\x12.EquipmentCategoryR\bcategory\"^\n" +
 	"'GetEquipmentFromNameAndCategoryResponse\x123\n" +
 	"\x0fequipment_items\x18\x01 \x03(\v2\n" +
-	".EquipmentR\x0eequipmentItems*U\n" +
+	".EquipmentR\x0eequipmentItems*\xe0\x02\n" +
 	"\x11EquipmentCategory\x12\"\n" +
-	"\x1eEQUIPMENT_CATEGORY_UNSPECIFIED\x10\x00\x12\x1c\n" +
-	"\x18EQUIPMENT_CATEGORY_BOOTS\x10\x012\x89\x01\n" +
+	"\x1eEQUIPMENT_CATEGORY_UNSPECIFIED\x10\x00\x12\x1d\n" +
+	"\x19EQUIPMENT_CATEGORY_AMULET\x10\x01\x12\x1b\n" +
+	"\x17EQUIPMENT_CATEGORY_BELT\x10\x02\x12\x1c\n" +
+	"\x18EQUIPMENT_CATEGORY_BOOTS\x10\x03\x12\x1c\n" +
+	"\x18EQUIPMENT_CATEGORY_CLOAK\x10\x04\x12\x1c\n" +
+	"\x18EQUIPMENT_CATEGORY_DOFUS\x10\x05\x12\x1a\n" +
+	"\x16EQUIPMENT_CATEGORY_HAT\x10\x06\x12\x1a\n" +
+	"\x16EQUIPMENT_CATEGORY_PET\x10\a\x12\x1b\n" +
+	"\x17EQUIPMENT_CATEGORY_RING\x10\b\x12\x1d\n" +
+	"\x19EQUIPMENT_CATEGORY_SHIELD\x10\t\x12\x1d\n" +
+	"\x19EQUIPMENT_CATEGORY_WEAPON\x10\n" +
+	"2\x89\x01\n" +
 	"\x11EquipmentsService\x12t\n" +
 	"\x1fGetEquipmentFromNameAndCategory\x12'.GetEquipmentFromNameAndCategoryRequest\x1a(.GetEquipmentFromNameAndCategoryResponseB6Z4github.com/diyerdo/proto/go/equipments/v1;equipmentsb\x06proto3"
 
