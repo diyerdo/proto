@@ -46,5 +46,5 @@ message GetEquipmentFromNameAndCategoryRequest {
 }
 
 message GetEquipmentFromNameAndCategoryResponse {
-  optional Equipment equipment_item = 1;
+  repeated Equipment equipment_item = 1;
 }

@@ -210,7 +210,7 @@ func (x *GetEquipmentFromNameAndCategoryRequest) GetCategory() EquipmentCategory
 
 type GetEquipmentFromNameAndCategoryResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	EquipmentItem *Equipment             `protobuf:"bytes,1,opt,name=equipment_item,json=equipmentItem,proto3,oneof" json:"equipment_item,omitempty"`
+	EquipmentItem []*Equipment           `protobuf:"bytes,1,rep,name=equipment_item,json=equipmentItem,proto3" json:"equipment_item,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -245,7 +245,7 @@ func (*GetEquipmentFromNameAndCategoryResponse) Descriptor() ([]byte, []int) {
 	return file_proto_equipments_v1_equipments_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *GetEquipmentFromNameAndCategoryResponse) GetEquipmentItem() *Equipment {
+func (x *GetEquipmentFromNameAndCategoryResponse) GetEquipmentItem() []*Equipment {
 	if x != nil {
 		return x.EquipmentItem
 	}
@@ -264,11 +264,10 @@ const file_proto_equipments_v1_equipments_proto_rawDesc = "" +
 	"\bicon_url\x18\x04 \x01(\tR\aiconUrl\"l\n" +
 	"&GetEquipmentFromNameAndCategoryRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12.\n" +
-	"\bcategory\x18\x02 \x01(\x0e2\x12.EquipmentCategoryR\bcategory\"t\n" +
-	"'GetEquipmentFromNameAndCategoryResponse\x126\n" +
-	"\x0eequipment_item\x18\x01 \x01(\v2\n" +
-	".EquipmentH\x00R\requipmentItem\x88\x01\x01B\x11\n" +
-	"\x0f_equipment_item*U\n" +
+	"\bcategory\x18\x02 \x01(\x0e2\x12.EquipmentCategoryR\bcategory\"\\\n" +
+	"'GetEquipmentFromNameAndCategoryResponse\x121\n" +
+	"\x0eequipment_item\x18\x01 \x03(\v2\n" +
+	".EquipmentR\requipmentItem*U\n" +
 	"\x11EquipmentCategory\x12\"\n" +
 	"\x1eEQUIPMENT_CATEGORY_UNSPECIFIED\x10\x00\x12\x1c\n" +
 	"\x18EQUIPMENT_CATEGORY_BOOTS\x10\x012\x89\x01\n" +
@@ -312,7 +311,6 @@ func file_proto_equipments_v1_equipments_proto_init() {
 	if File_proto_equipments_v1_equipments_proto != nil {
 		return
 	}
-	file_proto_equipments_v1_equipments_proto_msgTypes[2].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
