@@ -45,17 +45,36 @@ const (
 type EquipmentCategory int32
 
 const (
-	EquipmentCategory_EQUIPMENT_CATEGORY_UNSPECIFIED EquipmentCategory = 0
-	EquipmentCategory_EQUIPMENT_CATEGORY_AMULET      EquipmentCategory = 1
-	EquipmentCategory_EQUIPMENT_CATEGORY_BELT        EquipmentCategory = 2
-	EquipmentCategory_EQUIPMENT_CATEGORY_BOOTS       EquipmentCategory = 3
-	EquipmentCategory_EQUIPMENT_CATEGORY_CLOAK       EquipmentCategory = 4
-	EquipmentCategory_EQUIPMENT_CATEGORY_DOFUS       EquipmentCategory = 5
-	EquipmentCategory_EQUIPMENT_CATEGORY_HAT         EquipmentCategory = 6
-	EquipmentCategory_EQUIPMENT_CATEGORY_PET         EquipmentCategory = 7
-	EquipmentCategory_EQUIPMENT_CATEGORY_RING        EquipmentCategory = 8
-	EquipmentCategory_EQUIPMENT_CATEGORY_SHIELD      EquipmentCategory = 9
-	EquipmentCategory_EQUIPMENT_CATEGORY_WEAPON      EquipmentCategory = 10
+	EquipmentCategory_EQUIPMENT_CATEGORY_UNSPECIFIED  EquipmentCategory = 0
+	EquipmentCategory_EQUIPMENT_CATEGORY_AMULET       EquipmentCategory = 1
+	EquipmentCategory_EQUIPMENT_CATEGORY_AXE          EquipmentCategory = 2
+	EquipmentCategory_EQUIPMENT_CATEGORY_BELT         EquipmentCategory = 3
+	EquipmentCategory_EQUIPMENT_CATEGORY_BOOTS        EquipmentCategory = 4
+	EquipmentCategory_EQUIPMENT_CATEGORY_BOW          EquipmentCategory = 5
+	EquipmentCategory_EQUIPMENT_CATEGORY_CLOAK        EquipmentCategory = 6
+	EquipmentCategory_EQUIPMENT_CATEGORY_DAGGER       EquipmentCategory = 7
+	EquipmentCategory_EQUIPMENT_CATEGORY_DOFUS        EquipmentCategory = 8
+	EquipmentCategory_EQUIPMENT_CATEGORY_DRAGOTURKEY  EquipmentCategory = 9
+	EquipmentCategory_EQUIPMENT_CATEGORY_HAMMER       EquipmentCategory = 10
+	EquipmentCategory_EQUIPMENT_CATEGORY_HAT          EquipmentCategory = 11
+	EquipmentCategory_EQUIPMENT_CATEGORY_LANCE        EquipmentCategory = 12
+	EquipmentCategory_EQUIPMENT_CATEGORY_MAGIC_WEAPON EquipmentCategory = 13
+	EquipmentCategory_EQUIPMENT_CATEGORY_PET          EquipmentCategory = 14
+	EquipmentCategory_EQUIPMENT_CATEGORY_PETSMOUNT    EquipmentCategory = 15
+	EquipmentCategory_EQUIPMENT_CATEGORY_PICKAXE      EquipmentCategory = 16
+	EquipmentCategory_EQUIPMENT_CATEGORY_PRYSMARADITE EquipmentCategory = 17
+	EquipmentCategory_EQUIPMENT_CATEGORY_RHINEETLE    EquipmentCategory = 18
+	EquipmentCategory_EQUIPMENT_CATEGORY_RING         EquipmentCategory = 19
+	EquipmentCategory_EQUIPMENT_CATEGORY_SCYTHE       EquipmentCategory = 20
+	EquipmentCategory_EQUIPMENT_CATEGORY_SEEMYOOL     EquipmentCategory = 21
+	EquipmentCategory_EQUIPMENT_CATEGORY_SHIELD       EquipmentCategory = 22
+	EquipmentCategory_EQUIPMENT_CATEGORY_SHOVEL       EquipmentCategory = 23
+	EquipmentCategory_EQUIPMENT_CATEGORY_STAFF        EquipmentCategory = 24
+	EquipmentCategory_EQUIPMENT_CATEGORY_SWORD        EquipmentCategory = 25
+	EquipmentCategory_EQUIPMENT_CATEGORY_TOOL         EquipmentCategory = 26
+	EquipmentCategory_EQUIPMENT_CATEGORY_TROPHY       EquipmentCategory = 27
+	EquipmentCategory_EQUIPMENT_CATEGORY_WAND         EquipmentCategory = 28
+	EquipmentCategory_EQUIPMENT_CATEGORY_WEAPON       EquipmentCategory = 29
 )
 
 // Enum value maps for EquipmentCategory.
@@ -63,28 +82,66 @@ var (
 	EquipmentCategory_name = map[int32]string{
 		0:  "EQUIPMENT_CATEGORY_UNSPECIFIED",
 		1:  "EQUIPMENT_CATEGORY_AMULET",
-		2:  "EQUIPMENT_CATEGORY_BELT",
-		3:  "EQUIPMENT_CATEGORY_BOOTS",
-		4:  "EQUIPMENT_CATEGORY_CLOAK",
-		5:  "EQUIPMENT_CATEGORY_DOFUS",
-		6:  "EQUIPMENT_CATEGORY_HAT",
-		7:  "EQUIPMENT_CATEGORY_PET",
-		8:  "EQUIPMENT_CATEGORY_RING",
-		9:  "EQUIPMENT_CATEGORY_SHIELD",
-		10: "EQUIPMENT_CATEGORY_WEAPON",
+		2:  "EQUIPMENT_CATEGORY_AXE",
+		3:  "EQUIPMENT_CATEGORY_BELT",
+		4:  "EQUIPMENT_CATEGORY_BOOTS",
+		5:  "EQUIPMENT_CATEGORY_BOW",
+		6:  "EQUIPMENT_CATEGORY_CLOAK",
+		7:  "EQUIPMENT_CATEGORY_DAGGER",
+		8:  "EQUIPMENT_CATEGORY_DOFUS",
+		9:  "EQUIPMENT_CATEGORY_DRAGOTURKEY",
+		10: "EQUIPMENT_CATEGORY_HAMMER",
+		11: "EQUIPMENT_CATEGORY_HAT",
+		12: "EQUIPMENT_CATEGORY_LANCE",
+		13: "EQUIPMENT_CATEGORY_MAGIC_WEAPON",
+		14: "EQUIPMENT_CATEGORY_PET",
+		15: "EQUIPMENT_CATEGORY_PETSMOUNT",
+		16: "EQUIPMENT_CATEGORY_PICKAXE",
+		17: "EQUIPMENT_CATEGORY_PRYSMARADITE",
+		18: "EQUIPMENT_CATEGORY_RHINEETLE",
+		19: "EQUIPMENT_CATEGORY_RING",
+		20: "EQUIPMENT_CATEGORY_SCYTHE",
+		21: "EQUIPMENT_CATEGORY_SEEMYOOL",
+		22: "EQUIPMENT_CATEGORY_SHIELD",
+		23: "EQUIPMENT_CATEGORY_SHOVEL",
+		24: "EQUIPMENT_CATEGORY_STAFF",
+		25: "EQUIPMENT_CATEGORY_SWORD",
+		26: "EQUIPMENT_CATEGORY_TOOL",
+		27: "EQUIPMENT_CATEGORY_TROPHY",
+		28: "EQUIPMENT_CATEGORY_WAND",
+		29: "EQUIPMENT_CATEGORY_WEAPON",
 	}
 	EquipmentCategory_value = map[string]int32{
-		"EQUIPMENT_CATEGORY_UNSPECIFIED": 0,
-		"EQUIPMENT_CATEGORY_AMULET":      1,
-		"EQUIPMENT_CATEGORY_BELT":        2,
-		"EQUIPMENT_CATEGORY_BOOTS":       3,
-		"EQUIPMENT_CATEGORY_CLOAK":       4,
-		"EQUIPMENT_CATEGORY_DOFUS":       5,
-		"EQUIPMENT_CATEGORY_HAT":         6,
-		"EQUIPMENT_CATEGORY_PET":         7,
-		"EQUIPMENT_CATEGORY_RING":        8,
-		"EQUIPMENT_CATEGORY_SHIELD":      9,
-		"EQUIPMENT_CATEGORY_WEAPON":      10,
+		"EQUIPMENT_CATEGORY_UNSPECIFIED":  0,
+		"EQUIPMENT_CATEGORY_AMULET":       1,
+		"EQUIPMENT_CATEGORY_AXE":          2,
+		"EQUIPMENT_CATEGORY_BELT":         3,
+		"EQUIPMENT_CATEGORY_BOOTS":        4,
+		"EQUIPMENT_CATEGORY_BOW":          5,
+		"EQUIPMENT_CATEGORY_CLOAK":        6,
+		"EQUIPMENT_CATEGORY_DAGGER":       7,
+		"EQUIPMENT_CATEGORY_DOFUS":        8,
+		"EQUIPMENT_CATEGORY_DRAGOTURKEY":  9,
+		"EQUIPMENT_CATEGORY_HAMMER":       10,
+		"EQUIPMENT_CATEGORY_HAT":          11,
+		"EQUIPMENT_CATEGORY_LANCE":        12,
+		"EQUIPMENT_CATEGORY_MAGIC_WEAPON": 13,
+		"EQUIPMENT_CATEGORY_PET":          14,
+		"EQUIPMENT_CATEGORY_PETSMOUNT":    15,
+		"EQUIPMENT_CATEGORY_PICKAXE":      16,
+		"EQUIPMENT_CATEGORY_PRYSMARADITE": 17,
+		"EQUIPMENT_CATEGORY_RHINEETLE":    18,
+		"EQUIPMENT_CATEGORY_RING":         19,
+		"EQUIPMENT_CATEGORY_SCYTHE":       20,
+		"EQUIPMENT_CATEGORY_SEEMYOOL":     21,
+		"EQUIPMENT_CATEGORY_SHIELD":       22,
+		"EQUIPMENT_CATEGORY_SHOVEL":       23,
+		"EQUIPMENT_CATEGORY_STAFF":        24,
+		"EQUIPMENT_CATEGORY_SWORD":        25,
+		"EQUIPMENT_CATEGORY_TOOL":         26,
+		"EQUIPMENT_CATEGORY_TROPHY":       27,
+		"EQUIPMENT_CATEGORY_WAND":         28,
+		"EQUIPMENT_CATEGORY_WEAPON":       29,
 	}
 )
 
@@ -299,20 +356,39 @@ const file_proto_equipments_v1_equipments_proto_rawDesc = "" +
 	"\bcategory\x18\x02 \x01(\x0e2\x12.EquipmentCategoryR\bcategory\"^\n" +
 	"'GetEquipmentFromNameAndCategoryResponse\x123\n" +
 	"\x0fequipment_items\x18\x01 \x03(\v2\n" +
-	".EquipmentR\x0eequipmentItems*\xe0\x02\n" +
+	".EquipmentR\x0eequipmentItems*\xba\a\n" +
 	"\x11EquipmentCategory\x12\"\n" +
 	"\x1eEQUIPMENT_CATEGORY_UNSPECIFIED\x10\x00\x12\x1d\n" +
-	"\x19EQUIPMENT_CATEGORY_AMULET\x10\x01\x12\x1b\n" +
-	"\x17EQUIPMENT_CATEGORY_BELT\x10\x02\x12\x1c\n" +
-	"\x18EQUIPMENT_CATEGORY_BOOTS\x10\x03\x12\x1c\n" +
-	"\x18EQUIPMENT_CATEGORY_CLOAK\x10\x04\x12\x1c\n" +
-	"\x18EQUIPMENT_CATEGORY_DOFUS\x10\x05\x12\x1a\n" +
-	"\x16EQUIPMENT_CATEGORY_HAT\x10\x06\x12\x1a\n" +
-	"\x16EQUIPMENT_CATEGORY_PET\x10\a\x12\x1b\n" +
-	"\x17EQUIPMENT_CATEGORY_RING\x10\b\x12\x1d\n" +
-	"\x19EQUIPMENT_CATEGORY_SHIELD\x10\t\x12\x1d\n" +
-	"\x19EQUIPMENT_CATEGORY_WEAPON\x10\n" +
-	"2\x89\x01\n" +
+	"\x19EQUIPMENT_CATEGORY_AMULET\x10\x01\x12\x1a\n" +
+	"\x16EQUIPMENT_CATEGORY_AXE\x10\x02\x12\x1b\n" +
+	"\x17EQUIPMENT_CATEGORY_BELT\x10\x03\x12\x1c\n" +
+	"\x18EQUIPMENT_CATEGORY_BOOTS\x10\x04\x12\x1a\n" +
+	"\x16EQUIPMENT_CATEGORY_BOW\x10\x05\x12\x1c\n" +
+	"\x18EQUIPMENT_CATEGORY_CLOAK\x10\x06\x12\x1d\n" +
+	"\x19EQUIPMENT_CATEGORY_DAGGER\x10\a\x12\x1c\n" +
+	"\x18EQUIPMENT_CATEGORY_DOFUS\x10\b\x12\"\n" +
+	"\x1eEQUIPMENT_CATEGORY_DRAGOTURKEY\x10\t\x12\x1d\n" +
+	"\x19EQUIPMENT_CATEGORY_HAMMER\x10\n" +
+	"\x12\x1a\n" +
+	"\x16EQUIPMENT_CATEGORY_HAT\x10\v\x12\x1c\n" +
+	"\x18EQUIPMENT_CATEGORY_LANCE\x10\f\x12#\n" +
+	"\x1fEQUIPMENT_CATEGORY_MAGIC_WEAPON\x10\r\x12\x1a\n" +
+	"\x16EQUIPMENT_CATEGORY_PET\x10\x0e\x12 \n" +
+	"\x1cEQUIPMENT_CATEGORY_PETSMOUNT\x10\x0f\x12\x1e\n" +
+	"\x1aEQUIPMENT_CATEGORY_PICKAXE\x10\x10\x12#\n" +
+	"\x1fEQUIPMENT_CATEGORY_PRYSMARADITE\x10\x11\x12 \n" +
+	"\x1cEQUIPMENT_CATEGORY_RHINEETLE\x10\x12\x12\x1b\n" +
+	"\x17EQUIPMENT_CATEGORY_RING\x10\x13\x12\x1d\n" +
+	"\x19EQUIPMENT_CATEGORY_SCYTHE\x10\x14\x12\x1f\n" +
+	"\x1bEQUIPMENT_CATEGORY_SEEMYOOL\x10\x15\x12\x1d\n" +
+	"\x19EQUIPMENT_CATEGORY_SHIELD\x10\x16\x12\x1d\n" +
+	"\x19EQUIPMENT_CATEGORY_SHOVEL\x10\x17\x12\x1c\n" +
+	"\x18EQUIPMENT_CATEGORY_STAFF\x10\x18\x12\x1c\n" +
+	"\x18EQUIPMENT_CATEGORY_SWORD\x10\x19\x12\x1b\n" +
+	"\x17EQUIPMENT_CATEGORY_TOOL\x10\x1a\x12\x1d\n" +
+	"\x19EQUIPMENT_CATEGORY_TROPHY\x10\x1b\x12\x1b\n" +
+	"\x17EQUIPMENT_CATEGORY_WAND\x10\x1c\x12\x1d\n" +
+	"\x19EQUIPMENT_CATEGORY_WEAPON\x10\x1d2\x89\x01\n" +
 	"\x11EquipmentsService\x12t\n" +
 	"\x1fGetEquipmentFromNameAndCategory\x12'.GetEquipmentFromNameAndCategoryRequest\x1a(.GetEquipmentFromNameAndCategoryResponseB6Z4github.com/diyerdo/proto/go/equipments/v1;equipmentsb\x06proto3"
 
