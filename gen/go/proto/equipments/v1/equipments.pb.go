@@ -246,7 +246,7 @@ func (x *Equipment) GetIconUrl() string {
 type GetEquipmentFromNameAndCategoryRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Category      EquipmentCategory      `protobuf:"varint,2,opt,name=category,proto3,enum=EquipmentCategory" json:"category,omitempty"`
+	Category      EquipmentCategory      `protobuf:"varint,2,opt,name=category,proto3,enum=equipments.v1.EquipmentCategory" json:"category,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -345,18 +345,17 @@ var File_proto_equipments_v1_equipments_proto protoreflect.FileDescriptor
 
 const file_proto_equipments_v1_equipments_proto_rawDesc = "" +
 	"\n" +
-	"$proto/equipments/v1/equipments.proto\"`\n" +
+	"$proto/equipments/v1/equipments.proto\x12\requipments.v1\"`\n" +
 	"\tEquipment\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
 	"\x05level\x18\x03 \x01(\x05R\x05level\x12\x19\n" +
-	"\bicon_url\x18\x04 \x01(\tR\aiconUrl\"l\n" +
+	"\bicon_url\x18\x04 \x01(\tR\aiconUrl\"z\n" +
 	"&GetEquipmentFromNameAndCategoryRequest\x12\x12\n" +
-	"\x04name\x18\x01 \x01(\tR\x04name\x12.\n" +
-	"\bcategory\x18\x02 \x01(\x0e2\x12.EquipmentCategoryR\bcategory\"^\n" +
-	"'GetEquipmentFromNameAndCategoryResponse\x123\n" +
-	"\x0fequipment_items\x18\x01 \x03(\v2\n" +
-	".EquipmentR\x0eequipmentItems*\xba\a\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\x12<\n" +
+	"\bcategory\x18\x02 \x01(\x0e2 .equipments.v1.EquipmentCategoryR\bcategory\"l\n" +
+	"'GetEquipmentFromNameAndCategoryResponse\x12A\n" +
+	"\x0fequipment_items\x18\x01 \x03(\v2\x18.equipments.v1.EquipmentR\x0eequipmentItems*\xba\a\n" +
 	"\x11EquipmentCategory\x12\"\n" +
 	"\x1eEQUIPMENT_CATEGORY_UNSPECIFIED\x10\x00\x12\x1d\n" +
 	"\x19EQUIPMENT_CATEGORY_AMULET\x10\x01\x12\x1a\n" +
@@ -388,9 +387,9 @@ const file_proto_equipments_v1_equipments_proto_rawDesc = "" +
 	"\x17EQUIPMENT_CATEGORY_TOOL\x10\x1a\x12\x1d\n" +
 	"\x19EQUIPMENT_CATEGORY_TROPHY\x10\x1b\x12\x1b\n" +
 	"\x17EQUIPMENT_CATEGORY_WAND\x10\x1c\x12\x1d\n" +
-	"\x19EQUIPMENT_CATEGORY_WEAPON\x10\x1d2\x89\x01\n" +
-	"\x11EquipmentsService\x12t\n" +
-	"\x1fGetEquipmentFromNameAndCategory\x12'.GetEquipmentFromNameAndCategoryRequest\x1a(.GetEquipmentFromNameAndCategoryResponseB6Z4github.com/diyerdo/proto/go/equipments/v1;equipmentsb\x06proto3"
+	"\x19EQUIPMENT_CATEGORY_WEAPON\x10\x1d2\xa6\x01\n" +
+	"\x11EquipmentsService\x12\x90\x01\n" +
+	"\x1fGetEquipmentFromNameAndCategory\x125.equipments.v1.GetEquipmentFromNameAndCategoryRequest\x1a6.equipments.v1.GetEquipmentFromNameAndCategoryResponseB6Z4github.com/diyerdo/proto/go/equipments/v1;equipmentsb\x06proto3"
 
 var (
 	file_proto_equipments_v1_equipments_proto_rawDescOnce sync.Once
@@ -407,16 +406,16 @@ func file_proto_equipments_v1_equipments_proto_rawDescGZIP() []byte {
 var file_proto_equipments_v1_equipments_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_proto_equipments_v1_equipments_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_proto_equipments_v1_equipments_proto_goTypes = []any{
-	(EquipmentCategory)(0),                          // 0: EquipmentCategory
-	(*Equipment)(nil),                               // 1: Equipment
-	(*GetEquipmentFromNameAndCategoryRequest)(nil),  // 2: GetEquipmentFromNameAndCategoryRequest
-	(*GetEquipmentFromNameAndCategoryResponse)(nil), // 3: GetEquipmentFromNameAndCategoryResponse
+	(EquipmentCategory)(0),                          // 0: equipments.v1.EquipmentCategory
+	(*Equipment)(nil),                               // 1: equipments.v1.Equipment
+	(*GetEquipmentFromNameAndCategoryRequest)(nil),  // 2: equipments.v1.GetEquipmentFromNameAndCategoryRequest
+	(*GetEquipmentFromNameAndCategoryResponse)(nil), // 3: equipments.v1.GetEquipmentFromNameAndCategoryResponse
 }
 var file_proto_equipments_v1_equipments_proto_depIdxs = []int32{
-	0, // 0: GetEquipmentFromNameAndCategoryRequest.category:type_name -> EquipmentCategory
-	1, // 1: GetEquipmentFromNameAndCategoryResponse.equipment_items:type_name -> Equipment
-	2, // 2: EquipmentsService.GetEquipmentFromNameAndCategory:input_type -> GetEquipmentFromNameAndCategoryRequest
-	3, // 3: EquipmentsService.GetEquipmentFromNameAndCategory:output_type -> GetEquipmentFromNameAndCategoryResponse
+	0, // 0: equipments.v1.GetEquipmentFromNameAndCategoryRequest.category:type_name -> equipments.v1.EquipmentCategory
+	1, // 1: equipments.v1.GetEquipmentFromNameAndCategoryResponse.equipment_items:type_name -> equipments.v1.Equipment
+	2, // 2: equipments.v1.EquipmentsService.GetEquipmentFromNameAndCategory:input_type -> equipments.v1.GetEquipmentFromNameAndCategoryRequest
+	3, // 3: equipments.v1.EquipmentsService.GetEquipmentFromNameAndCategory:output_type -> equipments.v1.GetEquipmentFromNameAndCategoryResponse
 	3, // [3:4] is the sub-list for method output_type
 	2, // [2:3] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name

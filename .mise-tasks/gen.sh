@@ -21,9 +21,18 @@
 #MISE description="Generates the go and dart code form the proto files living in proto/ directory"
 
 echo "Generating go code"
+echo "Generating go code for EquipmentsService"
 protoc \
   --go_out=gen/go \
   --go-grpc_out=gen/go \
   --go_opt=paths=source_relative \
   --go-grpc_opt=paths=source_relative \
   proto/equipments/v1/equipments.proto
+
+echo "Generating go code for RecipesService"
+protoc \
+  --go_out=gen/go \
+  --go-grpc_out=gen/go \
+  --go_opt=paths=source_relative \
+  --go-grpc_opt=paths=source_relative \
+  proto/recipes/v1/recipes.proto

@@ -39,7 +39,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	EquipmentsService_GetEquipmentFromNameAndCategory_FullMethodName = "/EquipmentsService/GetEquipmentFromNameAndCategory"
+	EquipmentsService_GetEquipmentFromNameAndCategory_FullMethodName = "/equipments.v1.EquipmentsService/GetEquipmentFromNameAndCategory"
 )
 
 // EquipmentsServiceClient is the client API for EquipmentsService service.
@@ -134,7 +134,7 @@ func _EquipmentsService_GetEquipmentFromNameAndCategory_Handler(srv interface{},
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var EquipmentsService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "EquipmentsService",
+	ServiceName: "equipments.v1.EquipmentsService",
 	HandlerType: (*EquipmentsServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

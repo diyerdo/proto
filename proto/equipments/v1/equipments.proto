@@ -19,6 +19,8 @@
 // Equipments service definition
 syntax = "proto3";
 
+package equipments.v1;
+
 option go_package = "github.com/diyerdo/proto/go/equipments/v1;equipments";
 
 // EquipmentItemLookupService is the service for equipment item lookup
