@@ -33,6 +33,7 @@ enum EquipmentCategory {
   EQUIPMENT_CATEGORY_BOOTS = 1;
 }
 
+// Equipment represents an equipment item
 message Equipment {
   int32 id = 1;
   string name = 2;
@@ -40,11 +41,15 @@ message Equipment {
   string icon_url = 4;
 }
 
+// GetEquipmentFromNameAndCategoryRequest represents the request to get the
+// equipment items corresponding to given name and category
 message GetEquipmentFromNameAndCategoryRequest {
   string name = 1;
   EquipmentCategory category = 2;
 }
 
+// GetEquipmentFromNameAndCategoryResponse represents the response to get the
+// equipment items corresponding to given name and category
 message GetEquipmentFromNameAndCategoryResponse {
-  repeated Equipment equipment_item = 1;
+  repeated Equipment equipment_items = 1;
 }

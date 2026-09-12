@@ -88,6 +88,7 @@ func (EquipmentCategory) EnumDescriptor() ([]byte, []int) {
 	return file_proto_equipments_v1_equipments_proto_rawDescGZIP(), []int{0}
 }
 
+// Equipment represents an equipment item
 type Equipment struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -156,6 +157,8 @@ func (x *Equipment) GetIconUrl() string {
 	return ""
 }
 
+// GetEquipmentFromNameAndCategoryRequest represents the request to get the
+// equipment items corresponding to given name and category
 type GetEquipmentFromNameAndCategoryRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
@@ -208,11 +211,13 @@ func (x *GetEquipmentFromNameAndCategoryRequest) GetCategory() EquipmentCategory
 	return EquipmentCategory_EQUIPMENT_CATEGORY_UNSPECIFIED
 }
 
+// GetEquipmentFromNameAndCategoryResponse represents the response to get the
+// equipment items corresponding to given name and category
 type GetEquipmentFromNameAndCategoryResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	EquipmentItem []*Equipment           `protobuf:"bytes,1,rep,name=equipment_item,json=equipmentItem,proto3" json:"equipment_item,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	EquipmentItems []*Equipment           `protobuf:"bytes,1,rep,name=equipment_items,json=equipmentItems,proto3" json:"equipment_items,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *GetEquipmentFromNameAndCategoryResponse) Reset() {
@@ -245,9 +250,9 @@ func (*GetEquipmentFromNameAndCategoryResponse) Descriptor() ([]byte, []int) {
 	return file_proto_equipments_v1_equipments_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *GetEquipmentFromNameAndCategoryResponse) GetEquipmentItem() []*Equipment {
+func (x *GetEquipmentFromNameAndCategoryResponse) GetEquipmentItems() []*Equipment {
 	if x != nil {
-		return x.EquipmentItem
+		return x.EquipmentItems
 	}
 	return nil
 }
@@ -264,10 +269,10 @@ const file_proto_equipments_v1_equipments_proto_rawDesc = "" +
 	"\bicon_url\x18\x04 \x01(\tR\aiconUrl\"l\n" +
 	"&GetEquipmentFromNameAndCategoryRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12.\n" +
-	"\bcategory\x18\x02 \x01(\x0e2\x12.EquipmentCategoryR\bcategory\"\\\n" +
-	"'GetEquipmentFromNameAndCategoryResponse\x121\n" +
-	"\x0eequipment_item\x18\x01 \x03(\v2\n" +
-	".EquipmentR\requipmentItem*U\n" +
+	"\bcategory\x18\x02 \x01(\x0e2\x12.EquipmentCategoryR\bcategory\"^\n" +
+	"'GetEquipmentFromNameAndCategoryResponse\x123\n" +
+	"\x0fequipment_items\x18\x01 \x03(\v2\n" +
+	".EquipmentR\x0eequipmentItems*U\n" +
 	"\x11EquipmentCategory\x12\"\n" +
 	"\x1eEQUIPMENT_CATEGORY_UNSPECIFIED\x10\x00\x12\x1c\n" +
 	"\x18EQUIPMENT_CATEGORY_BOOTS\x10\x012\x89\x01\n" +
@@ -296,7 +301,7 @@ var file_proto_equipments_v1_equipments_proto_goTypes = []any{
 }
 var file_proto_equipments_v1_equipments_proto_depIdxs = []int32{
 	0, // 0: GetEquipmentFromNameAndCategoryRequest.category:type_name -> EquipmentCategory
-	1, // 1: GetEquipmentFromNameAndCategoryResponse.equipment_item:type_name -> Equipment
+	1, // 1: GetEquipmentFromNameAndCategoryResponse.equipment_items:type_name -> Equipment
 	2, // 2: EquipmentsService.GetEquipmentFromNameAndCategory:input_type -> GetEquipmentFromNameAndCategoryRequest
 	3, // 3: EquipmentsService.GetEquipmentFromNameAndCategory:output_type -> GetEquipmentFromNameAndCategoryResponse
 	3, // [3:4] is the sub-list for method output_type
