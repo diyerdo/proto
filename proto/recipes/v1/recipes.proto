@@ -1,0 +1,52 @@
+// diyerdo's proto
+// Copyright (C) 2026 DrLarck
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+//
+// ---
+//
+// Equipments service definition
+syntax = "proto3";
+
+package recipes.v1;
+
+option go_package = "github.com/diyerdo/proto/go/recipes/v1;recipes";
+
+// RecipesService is the service for equipment's recipe resolving
+service RecipesService {
+  // GetRecipeForEquipment returns the recipe for the given equipment
+  rpc GetRecipeForEquipment(GetRecipeForEquipmentRequest) returns (GetRecipeForEquipmentResponse);
+}
+
+// GetRecipeForEquipmentRequest is the request for GetRecipeForEquipment
+message GetRecipeForEquipmentRequest {
+  int32 equipment_id = 1;
+}
+
+// RecipeItem represents one of the resolved recipe's item
+message RecipeItem {
+  int32 id = 1;
+  string subtype = 2;
+  int32 quantity = 3;
+}
+
+// Recipe represents the resolved recipe
+message Recipe {
+  repeated RecipeItem items = 1;
+}
+
+// GetRecipeForEquipmentResponse is the response for GetRecipeForEquipment
+message GetRecipeForEquipmentResponse {
+  repeated Recipe recipes = 1;
+}
