@@ -1,0 +1,56 @@
+// diyerdo's proto
+// Copyright (C) 2026 DrLarck
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+//
+// ---
+//
+// <A brief explanation of what the module does>
+syntax = "proto3";
+
+package jobs.v1;
+
+option go_package = "github.com/diyerdo/proto/go/jobs/v1;jobs";
+
+service JobsService {
+  // GetJobForItem returns the job required to craft the given item
+  rpc GetJobForItem(GetJobForItemRequest) returns (GetJobForItemResponse);
+}
+
+// GetJobForItemRequest is the request for GetJobForItem
+message GetJobForItemRequest {
+  int32 item_id = 1;
+}
+
+enum Job {
+  JOB_UNSPECIFIED = 0;
+  JOB_ALCHEMIST = 1;
+  JOB_CARVER = 2;
+  JOB_FARMER = 3;
+  JOB_FISHERMAN = 4;
+  JOB_HANDYMAN = 5;
+  JOB_HUNTER = 6;
+  JOB_JEWELLER = 7;
+  JOB_LUMBERJACK = 8;
+  JOB_MINER = 9;
+  JOB_SHIELDMAKER = 10;
+  JOB_SHOEMAKER = 11;
+  JOB_SMITH = 12;
+  JOB_TAILOR = 13;
+}
+
+// GetJobForItemResponse is the response for GetJobForItem
+message GetJobForItemResponse {
+  repeated Job jobs = 1;
+}
