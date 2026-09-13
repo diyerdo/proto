@@ -16,7 +16,7 @@
 //
 // ---
 //
-// <A brief explanation of what the module does>
+// Jobs service difinition
 syntax = "proto3";
 
 package jobs.v1;
