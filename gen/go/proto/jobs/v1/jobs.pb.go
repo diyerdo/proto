@@ -168,6 +168,58 @@ func (x *GetJobForItemRequest) GetItemId() int32 {
 	return 0
 }
 
+type JobRequirements struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Job           Job                    `protobuf:"varint,1,opt,name=job,proto3,enum=jobs.v1.Job" json:"job,omitempty"`
+	Level         int32                  `protobuf:"varint,2,opt,name=level,proto3" json:"level,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *JobRequirements) Reset() {
+	*x = JobRequirements{}
+	mi := &file_proto_jobs_v1_jobs_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *JobRequirements) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*JobRequirements) ProtoMessage() {}
+
+func (x *JobRequirements) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_jobs_v1_jobs_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use JobRequirements.ProtoReflect.Descriptor instead.
+func (*JobRequirements) Descriptor() ([]byte, []int) {
+	return file_proto_jobs_v1_jobs_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *JobRequirements) GetJob() Job {
+	if x != nil {
+		return x.Job
+	}
+	return Job_JOB_UNSPECIFIED
+}
+
+func (x *JobRequirements) GetLevel() int32 {
+	if x != nil {
+		return x.Level
+	}
+	return 0
+}
+
 // GetJobForItemResponse is the response for GetJobForItem
 type GetJobForItemResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -178,7 +230,7 @@ type GetJobForItemResponse struct {
 
 func (x *GetJobForItemResponse) Reset() {
 	*x = GetJobForItemResponse{}
-	mi := &file_proto_jobs_v1_jobs_proto_msgTypes[1]
+	mi := &file_proto_jobs_v1_jobs_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -190,7 +242,7 @@ func (x *GetJobForItemResponse) String() string {
 func (*GetJobForItemResponse) ProtoMessage() {}
 
 func (x *GetJobForItemResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_jobs_v1_jobs_proto_msgTypes[1]
+	mi := &file_proto_jobs_v1_jobs_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -203,12 +255,100 @@ func (x *GetJobForItemResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetJobForItemResponse.ProtoReflect.Descriptor instead.
 func (*GetJobForItemResponse) Descriptor() ([]byte, []int) {
-	return file_proto_jobs_v1_jobs_proto_rawDescGZIP(), []int{1}
+	return file_proto_jobs_v1_jobs_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetJobForItemResponse) GetJobs() []Job {
 	if x != nil {
 		return x.Jobs
+	}
+	return nil
+}
+
+type GetJobsRequirementsForItemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ItemId        int32                  `protobuf:"varint,1,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetJobsRequirementsForItemRequest) Reset() {
+	*x = GetJobsRequirementsForItemRequest{}
+	mi := &file_proto_jobs_v1_jobs_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJobsRequirementsForItemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJobsRequirementsForItemRequest) ProtoMessage() {}
+
+func (x *GetJobsRequirementsForItemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_jobs_v1_jobs_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetJobsRequirementsForItemRequest.ProtoReflect.Descriptor instead.
+func (*GetJobsRequirementsForItemRequest) Descriptor() ([]byte, []int) {
+	return file_proto_jobs_v1_jobs_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetJobsRequirementsForItemRequest) GetItemId() int32 {
+	if x != nil {
+		return x.ItemId
+	}
+	return 0
+}
+
+type GetJobsRequirementsForItemResponse struct {
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	JobRequirements []*JobRequirements     `protobuf:"bytes,1,rep,name=job_requirements,json=jobRequirements,proto3" json:"job_requirements,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
+}
+
+func (x *GetJobsRequirementsForItemResponse) Reset() {
+	*x = GetJobsRequirementsForItemResponse{}
+	mi := &file_proto_jobs_v1_jobs_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetJobsRequirementsForItemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetJobsRequirementsForItemResponse) ProtoMessage() {}
+
+func (x *GetJobsRequirementsForItemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_jobs_v1_jobs_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetJobsRequirementsForItemResponse.ProtoReflect.Descriptor instead.
+func (*GetJobsRequirementsForItemResponse) Descriptor() ([]byte, []int) {
+	return file_proto_jobs_v1_jobs_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetJobsRequirementsForItemResponse) GetJobRequirements() []*JobRequirements {
+	if x != nil {
+		return x.JobRequirements
 	}
 	return nil
 }
@@ -219,9 +359,16 @@ const file_proto_jobs_v1_jobs_proto_rawDesc = "" +
 	"\n" +
 	"\x18proto/jobs/v1/jobs.proto\x12\ajobs.v1\"/\n" +
 	"\x14GetJobForItemRequest\x12\x17\n" +
-	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\"9\n" +
+	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\"G\n" +
+	"\x0fJobRequirements\x12\x1e\n" +
+	"\x03job\x18\x01 \x01(\x0e2\f.jobs.v1.JobR\x03job\x12\x14\n" +
+	"\x05level\x18\x02 \x01(\x05R\x05level\"9\n" +
 	"\x15GetJobForItemResponse\x12 \n" +
-	"\x04jobs\x18\x01 \x03(\x0e2\f.jobs.v1.JobR\x04jobs*\xfe\x01\n" +
+	"\x04jobs\x18\x01 \x03(\x0e2\f.jobs.v1.JobR\x04jobs\"<\n" +
+	"!GetJobsRequirementsForItemRequest\x12\x17\n" +
+	"\aitem_id\x18\x01 \x01(\x05R\x06itemId\"i\n" +
+	"\"GetJobsRequirementsForItemResponse\x12C\n" +
+	"\x10job_requirements\x18\x01 \x03(\v2\x18.jobs.v1.JobRequirementsR\x0fjobRequirements*\xfe\x01\n" +
 	"\x03Job\x12\x13\n" +
 	"\x0fJOB_UNSPECIFIED\x10\x00\x12\x11\n" +
 	"\rJOB_ALCHEMIST\x10\x01\x12\x0e\n" +
@@ -241,9 +388,10 @@ const file_proto_jobs_v1_jobs_proto_rawDesc = "" +
 	"\rJOB_SHOEMAKER\x10\v\x12\r\n" +
 	"\tJOB_SMITH\x10\f\x12\x0e\n" +
 	"\n" +
-	"JOB_TAILOR\x10\r2]\n" +
+	"JOB_TAILOR\x10\r2\xd4\x01\n" +
 	"\vJobsService\x12N\n" +
-	"\rGetJobForItem\x12\x1d.jobs.v1.GetJobForItemRequest\x1a\x1e.jobs.v1.GetJobForItemResponseB*Z(github.com/diyerdo/proto/go/jobs/v1;jobsb\x06proto3"
+	"\rGetJobForItem\x12\x1d.jobs.v1.GetJobForItemRequest\x1a\x1e.jobs.v1.GetJobForItemResponse\x12u\n" +
+	"\x1aGetJobsRequirementsForItem\x12*.jobs.v1.GetJobsRequirementsForItemRequest\x1a+.jobs.v1.GetJobsRequirementsForItemResponseB*Z(github.com/diyerdo/proto/go/jobs/v1;jobsb\x06proto3"
 
 var (
 	file_proto_jobs_v1_jobs_proto_rawDescOnce sync.Once
@@ -258,21 +406,28 @@ func file_proto_jobs_v1_jobs_proto_rawDescGZIP() []byte {
 }
 
 var file_proto_jobs_v1_jobs_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_proto_jobs_v1_jobs_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_proto_jobs_v1_jobs_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_proto_jobs_v1_jobs_proto_goTypes = []any{
-	(Job)(0),                      // 0: jobs.v1.Job
-	(*GetJobForItemRequest)(nil),  // 1: jobs.v1.GetJobForItemRequest
-	(*GetJobForItemResponse)(nil), // 2: jobs.v1.GetJobForItemResponse
+	(Job)(0),                                   // 0: jobs.v1.Job
+	(*GetJobForItemRequest)(nil),               // 1: jobs.v1.GetJobForItemRequest
+	(*JobRequirements)(nil),                    // 2: jobs.v1.JobRequirements
+	(*GetJobForItemResponse)(nil),              // 3: jobs.v1.GetJobForItemResponse
+	(*GetJobsRequirementsForItemRequest)(nil),  // 4: jobs.v1.GetJobsRequirementsForItemRequest
+	(*GetJobsRequirementsForItemResponse)(nil), // 5: jobs.v1.GetJobsRequirementsForItemResponse
 }
 var file_proto_jobs_v1_jobs_proto_depIdxs = []int32{
-	0, // 0: jobs.v1.GetJobForItemResponse.jobs:type_name -> jobs.v1.Job
-	1, // 1: jobs.v1.JobsService.GetJobForItem:input_type -> jobs.v1.GetJobForItemRequest
-	2, // 2: jobs.v1.JobsService.GetJobForItem:output_type -> jobs.v1.GetJobForItemResponse
-	2, // [2:3] is the sub-list for method output_type
-	1, // [1:2] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0, // 0: jobs.v1.JobRequirements.job:type_name -> jobs.v1.Job
+	0, // 1: jobs.v1.GetJobForItemResponse.jobs:type_name -> jobs.v1.Job
+	2, // 2: jobs.v1.GetJobsRequirementsForItemResponse.job_requirements:type_name -> jobs.v1.JobRequirements
+	1, // 3: jobs.v1.JobsService.GetJobForItem:input_type -> jobs.v1.GetJobForItemRequest
+	4, // 4: jobs.v1.JobsService.GetJobsRequirementsForItem:input_type -> jobs.v1.GetJobsRequirementsForItemRequest
+	3, // 5: jobs.v1.JobsService.GetJobForItem:output_type -> jobs.v1.GetJobForItemResponse
+	5, // 6: jobs.v1.JobsService.GetJobsRequirementsForItem:output_type -> jobs.v1.GetJobsRequirementsForItemResponse
+	5, // [5:7] is the sub-list for method output_type
+	3, // [3:5] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_proto_jobs_v1_jobs_proto_init() }
@@ -286,7 +441,7 @@ func file_proto_jobs_v1_jobs_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_jobs_v1_jobs_proto_rawDesc), len(file_proto_jobs_v1_jobs_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   2,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

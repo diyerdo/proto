@@ -26,6 +26,9 @@ option go_package = "github.com/diyerdo/proto/go/jobs/v1;jobs";
 service JobsService {
   // GetJobForItem returns the job required to craft the given item
   rpc GetJobForItem(GetJobForItemRequest) returns (GetJobForItemResponse);
+
+  // GetJobRequirementsForItem returns the job requirements to craft the given item
+  rpc GetJobsRequirementsForItem(GetJobsRequirementsForItemRequest) returns (GetJobsRequirementsForItemResponse);
 }
 
 // GetJobForItemRequest is the request for GetJobForItem
@@ -50,7 +53,20 @@ enum Job {
   JOB_TAILOR = 13;
 }
 
+message JobRequirements {
+  Job job = 1;
+  int32 level = 2;
+}
+
 // GetJobForItemResponse is the response for GetJobForItem
 message GetJobForItemResponse {
   repeated Job jobs = 1;
+}
+
+message GetJobsRequirementsForItemRequest {
+  int32 item_id = 1;
+}
+
+message GetJobsRequirementsForItemResponse {
+  repeated JobRequirements job_requirements = 1;
 }

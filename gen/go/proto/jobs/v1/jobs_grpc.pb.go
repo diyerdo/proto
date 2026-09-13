@@ -39,7 +39,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	JobsService_GetJobForItem_FullMethodName = "/jobs.v1.JobsService/GetJobForItem"
+	JobsService_GetJobForItem_FullMethodName              = "/jobs.v1.JobsService/GetJobForItem"
+	JobsService_GetJobsRequirementsForItem_FullMethodName = "/jobs.v1.JobsService/GetJobsRequirementsForItem"
 )
 
 // JobsServiceClient is the client API for JobsService service.
@@ -48,6 +49,8 @@ const (
 type JobsServiceClient interface {
 	// GetJobForItem returns the job required to craft the given item
 	GetJobForItem(ctx context.Context, in *GetJobForItemRequest, opts ...grpc.CallOption) (*GetJobForItemResponse, error)
+	// GetJobRequirementsForItem returns the job requirements to craft the given item
+	GetJobsRequirementsForItem(ctx context.Context, in *GetJobsRequirementsForItemRequest, opts ...grpc.CallOption) (*GetJobsRequirementsForItemResponse, error)
 }
 
 type jobsServiceClient struct {
@@ -68,12 +71,24 @@ func (c *jobsServiceClient) GetJobForItem(ctx context.Context, in *GetJobForItem
 	return out, nil
 }
 
+func (c *jobsServiceClient) GetJobsRequirementsForItem(ctx context.Context, in *GetJobsRequirementsForItemRequest, opts ...grpc.CallOption) (*GetJobsRequirementsForItemResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetJobsRequirementsForItemResponse)
+	err := c.cc.Invoke(ctx, JobsService_GetJobsRequirementsForItem_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // JobsServiceServer is the server API for JobsService service.
 // All implementations must embed UnimplementedJobsServiceServer
 // for forward compatibility.
 type JobsServiceServer interface {
 	// GetJobForItem returns the job required to craft the given item
 	GetJobForItem(context.Context, *GetJobForItemRequest) (*GetJobForItemResponse, error)
+	// GetJobRequirementsForItem returns the job requirements to craft the given item
+	GetJobsRequirementsForItem(context.Context, *GetJobsRequirementsForItemRequest) (*GetJobsRequirementsForItemResponse, error)
 	mustEmbedUnimplementedJobsServiceServer()
 }
 
@@ -86,6 +101,9 @@ type UnimplementedJobsServiceServer struct{}
 
 func (UnimplementedJobsServiceServer) GetJobForItem(context.Context, *GetJobForItemRequest) (*GetJobForItemResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetJobForItem not implemented")
+}
+func (UnimplementedJobsServiceServer) GetJobsRequirementsForItem(context.Context, *GetJobsRequirementsForItemRequest) (*GetJobsRequirementsForItemResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetJobsRequirementsForItem not implemented")
 }
 func (UnimplementedJobsServiceServer) mustEmbedUnimplementedJobsServiceServer() {}
 func (UnimplementedJobsServiceServer) testEmbeddedByValue()                     {}
@@ -126,6 +144,24 @@ func _JobsService_GetJobForItem_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _JobsService_GetJobsRequirementsForItem_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetJobsRequirementsForItemRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(JobsServiceServer).GetJobsRequirementsForItem(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: JobsService_GetJobsRequirementsForItem_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(JobsServiceServer).GetJobsRequirementsForItem(ctx, req.(*GetJobsRequirementsForItemRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // JobsService_ServiceDesc is the grpc.ServiceDesc for JobsService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -136,6 +172,10 @@ var JobsService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetJobForItem",
 			Handler:    _JobsService_GetJobForItem_Handler,
+		},
+		{
+			MethodName: "GetJobsRequirementsForItem",
+			Handler:    _JobsService_GetJobsRequirementsForItem_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
