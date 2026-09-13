@@ -1,0 +1,50 @@
+// diyerdo's proto
+// Copyright (C) 2026 DrLarck
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+//
+// ---
+//
+// Resources service definition
+syntax = "proto3";
+
+package resources.v1;
+
+option go_package = "github.com/diyerdo/proto/go/resources/v1;resources";
+
+// ResourcesService is the service for resources items resolution
+//
+// It can tell:
+// - The data about a given resource
+// - The resource recipe with the associated job
+// - The monsters from which the resource can be obtained
+service ResourcesService {
+  // GetResourceFromId retrieves the given resource's info
+  rpc GetResourceFromId(GetResourceFromIdRequest) returns (GetResourceFromIdResponse);
+}
+
+message GetResourceFromIdRequest {
+  string resource_id = 1;
+}
+
+message Resource {
+  int32 id = 1;
+  string name = 2;
+  int32 level = 3;
+  string image_url = 4;
+}
+
+message GetResourceFromIdResponse {
+  Resource resource = 1;
+}
