@@ -178,7 +178,7 @@ type Equipment struct {
 	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Level         int32                  `protobuf:"varint,3,opt,name=level,proto3" json:"level,omitempty"`
-	IconUrl       string                 `protobuf:"bytes,4,opt,name=icon_url,json=iconUrl,proto3" json:"icon_url,omitempty"`
+	ImageUrl      string                 `protobuf:"bytes,4,opt,name=image_url,json=imageUrl,proto3" json:"image_url,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -234,9 +234,9 @@ func (x *Equipment) GetLevel() int32 {
 	return 0
 }
 
-func (x *Equipment) GetIconUrl() string {
+func (x *Equipment) GetImageUrl() string {
 	if x != nil {
-		return x.IconUrl
+		return x.ImageUrl
 	}
 	return ""
 }
@@ -345,12 +345,12 @@ var File_proto_equipments_v1_equipments_proto protoreflect.FileDescriptor
 
 const file_proto_equipments_v1_equipments_proto_rawDesc = "" +
 	"\n" +
-	"$proto/equipments/v1/equipments.proto\x12\requipments.v1\"`\n" +
+	"$proto/equipments/v1/equipments.proto\x12\requipments.v1\"b\n" +
 	"\tEquipment\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
-	"\x05level\x18\x03 \x01(\x05R\x05level\x12\x19\n" +
-	"\bicon_url\x18\x04 \x01(\tR\aiconUrl\"z\n" +
+	"\x05level\x18\x03 \x01(\x05R\x05level\x12\x1b\n" +
+	"\timage_url\x18\x04 \x01(\tR\bimageUrl\"z\n" +
 	"&GetEquipmentFromNameAndCategoryRequest\x12\x12\n" +
 	"\x04name\x18\x01 \x01(\tR\x04name\x12<\n" +
 	"\bcategory\x18\x02 \x01(\x0e2 .equipments.v1.EquipmentCategoryR\bcategory\"l\n" +
