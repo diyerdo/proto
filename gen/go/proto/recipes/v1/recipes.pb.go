@@ -237,6 +237,94 @@ func (x *GetRecipeForEquipmentResponse) GetRecipes() []*Recipe {
 	return nil
 }
 
+type GetRecipeForResourceRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ResourceId    int32                  `protobuf:"varint,1,opt,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRecipeForResourceRequest) Reset() {
+	*x = GetRecipeForResourceRequest{}
+	mi := &file_proto_recipes_v1_recipes_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRecipeForResourceRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRecipeForResourceRequest) ProtoMessage() {}
+
+func (x *GetRecipeForResourceRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_recipes_v1_recipes_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRecipeForResourceRequest.ProtoReflect.Descriptor instead.
+func (*GetRecipeForResourceRequest) Descriptor() ([]byte, []int) {
+	return file_proto_recipes_v1_recipes_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetRecipeForResourceRequest) GetResourceId() int32 {
+	if x != nil {
+		return x.ResourceId
+	}
+	return 0
+}
+
+type GetRecipeForResourceResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Recipes       []*Recipe              `protobuf:"bytes,1,rep,name=recipes,proto3" json:"recipes,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRecipeForResourceResponse) Reset() {
+	*x = GetRecipeForResourceResponse{}
+	mi := &file_proto_recipes_v1_recipes_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRecipeForResourceResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRecipeForResourceResponse) ProtoMessage() {}
+
+func (x *GetRecipeForResourceResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_recipes_v1_recipes_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRecipeForResourceResponse.ProtoReflect.Descriptor instead.
+func (*GetRecipeForResourceResponse) Descriptor() ([]byte, []int) {
+	return file_proto_recipes_v1_recipes_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetRecipeForResourceResponse) GetRecipes() []*Recipe {
+	if x != nil {
+		return x.Recipes
+	}
+	return nil
+}
+
 var File_proto_recipes_v1_recipes_proto protoreflect.FileDescriptor
 
 const file_proto_recipes_v1_recipes_proto_rawDesc = "" +
@@ -253,9 +341,15 @@ const file_proto_recipes_v1_recipes_proto_rawDesc = "" +
 	"\x06Recipe\x12,\n" +
 	"\x05items\x18\x01 \x03(\v2\x16.recipes.v1.RecipeItemR\x05items\"M\n" +
 	"\x1dGetRecipeForEquipmentResponse\x12,\n" +
-	"\arecipes\x18\x01 \x03(\v2\x12.recipes.v1.RecipeR\arecipes2~\n" +
+	"\arecipes\x18\x01 \x03(\v2\x12.recipes.v1.RecipeR\arecipes\">\n" +
+	"\x1bGetRecipeForResourceRequest\x12\x1f\n" +
+	"\vresource_id\x18\x01 \x01(\x05R\n" +
+	"resourceId\"L\n" +
+	"\x1cGetRecipeForResourceResponse\x12,\n" +
+	"\arecipes\x18\x01 \x03(\v2\x12.recipes.v1.RecipeR\arecipes2\xe9\x01\n" +
 	"\x0eRecipesService\x12l\n" +
-	"\x15GetRecipeForEquipment\x12(.recipes.v1.GetRecipeForEquipmentRequest\x1a).recipes.v1.GetRecipeForEquipmentResponseB0Z.github.com/diyerdo/proto/go/recipes/v1;recipesb\x06proto3"
+	"\x15GetRecipeForEquipment\x12(.recipes.v1.GetRecipeForEquipmentRequest\x1a).recipes.v1.GetRecipeForEquipmentResponse\x12i\n" +
+	"\x14GetRecipeForResource\x12'.recipes.v1.GetRecipeForResourceRequest\x1a(.recipes.v1.GetRecipeForResourceResponseB0Z.github.com/diyerdo/proto/go/recipes/v1;recipesb\x06proto3"
 
 var (
 	file_proto_recipes_v1_recipes_proto_rawDescOnce sync.Once
@@ -269,23 +363,28 @@ func file_proto_recipes_v1_recipes_proto_rawDescGZIP() []byte {
 	return file_proto_recipes_v1_recipes_proto_rawDescData
 }
 
-var file_proto_recipes_v1_recipes_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_proto_recipes_v1_recipes_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_proto_recipes_v1_recipes_proto_goTypes = []any{
 	(*GetRecipeForEquipmentRequest)(nil),  // 0: recipes.v1.GetRecipeForEquipmentRequest
 	(*RecipeItem)(nil),                    // 1: recipes.v1.RecipeItem
 	(*Recipe)(nil),                        // 2: recipes.v1.Recipe
 	(*GetRecipeForEquipmentResponse)(nil), // 3: recipes.v1.GetRecipeForEquipmentResponse
+	(*GetRecipeForResourceRequest)(nil),   // 4: recipes.v1.GetRecipeForResourceRequest
+	(*GetRecipeForResourceResponse)(nil),  // 5: recipes.v1.GetRecipeForResourceResponse
 }
 var file_proto_recipes_v1_recipes_proto_depIdxs = []int32{
 	1, // 0: recipes.v1.Recipe.items:type_name -> recipes.v1.RecipeItem
 	2, // 1: recipes.v1.GetRecipeForEquipmentResponse.recipes:type_name -> recipes.v1.Recipe
-	0, // 2: recipes.v1.RecipesService.GetRecipeForEquipment:input_type -> recipes.v1.GetRecipeForEquipmentRequest
-	3, // 3: recipes.v1.RecipesService.GetRecipeForEquipment:output_type -> recipes.v1.GetRecipeForEquipmentResponse
-	3, // [3:4] is the sub-list for method output_type
-	2, // [2:3] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	2, // 2: recipes.v1.GetRecipeForResourceResponse.recipes:type_name -> recipes.v1.Recipe
+	0, // 3: recipes.v1.RecipesService.GetRecipeForEquipment:input_type -> recipes.v1.GetRecipeForEquipmentRequest
+	4, // 4: recipes.v1.RecipesService.GetRecipeForResource:input_type -> recipes.v1.GetRecipeForResourceRequest
+	3, // 5: recipes.v1.RecipesService.GetRecipeForEquipment:output_type -> recipes.v1.GetRecipeForEquipmentResponse
+	5, // 6: recipes.v1.RecipesService.GetRecipeForResource:output_type -> recipes.v1.GetRecipeForResourceResponse
+	5, // [5:7] is the sub-list for method output_type
+	3, // [3:5] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_proto_recipes_v1_recipes_proto_init() }
@@ -299,7 +398,7 @@ func file_proto_recipes_v1_recipes_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_proto_recipes_v1_recipes_proto_rawDesc), len(file_proto_recipes_v1_recipes_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -40,6 +40,7 @@ const _ = grpc.SupportPackageIsVersion9
 
 const (
 	RecipesService_GetRecipeForEquipment_FullMethodName = "/recipes.v1.RecipesService/GetRecipeForEquipment"
+	RecipesService_GetRecipeForResource_FullMethodName  = "/recipes.v1.RecipesService/GetRecipeForResource"
 )
 
 // RecipesServiceClient is the client API for RecipesService service.
@@ -50,6 +51,8 @@ const (
 type RecipesServiceClient interface {
 	// GetRecipeForEquipment returns the recipe for the given equipment
 	GetRecipeForEquipment(ctx context.Context, in *GetRecipeForEquipmentRequest, opts ...grpc.CallOption) (*GetRecipeForEquipmentResponse, error)
+	// GetRecipeForResource returns the recipe for the given resource
+	GetRecipeForResource(ctx context.Context, in *GetRecipeForResourceRequest, opts ...grpc.CallOption) (*GetRecipeForResourceResponse, error)
 }
 
 type recipesServiceClient struct {
@@ -70,6 +73,16 @@ func (c *recipesServiceClient) GetRecipeForEquipment(ctx context.Context, in *Ge
 	return out, nil
 }
 
+func (c *recipesServiceClient) GetRecipeForResource(ctx context.Context, in *GetRecipeForResourceRequest, opts ...grpc.CallOption) (*GetRecipeForResourceResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetRecipeForResourceResponse)
+	err := c.cc.Invoke(ctx, RecipesService_GetRecipeForResource_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // RecipesServiceServer is the server API for RecipesService service.
 // All implementations must embed UnimplementedRecipesServiceServer
 // for forward compatibility.
@@ -78,6 +91,8 @@ func (c *recipesServiceClient) GetRecipeForEquipment(ctx context.Context, in *Ge
 type RecipesServiceServer interface {
 	// GetRecipeForEquipment returns the recipe for the given equipment
 	GetRecipeForEquipment(context.Context, *GetRecipeForEquipmentRequest) (*GetRecipeForEquipmentResponse, error)
+	// GetRecipeForResource returns the recipe for the given resource
+	GetRecipeForResource(context.Context, *GetRecipeForResourceRequest) (*GetRecipeForResourceResponse, error)
 	mustEmbedUnimplementedRecipesServiceServer()
 }
 
@@ -90,6 +105,9 @@ type UnimplementedRecipesServiceServer struct{}
 
 func (UnimplementedRecipesServiceServer) GetRecipeForEquipment(context.Context, *GetRecipeForEquipmentRequest) (*GetRecipeForEquipmentResponse, error) {
 	return nil, status.Error(codes.Unimplemented, "method GetRecipeForEquipment not implemented")
+}
+func (UnimplementedRecipesServiceServer) GetRecipeForResource(context.Context, *GetRecipeForResourceRequest) (*GetRecipeForResourceResponse, error) {
+	return nil, status.Error(codes.Unimplemented, "method GetRecipeForResource not implemented")
 }
 func (UnimplementedRecipesServiceServer) mustEmbedUnimplementedRecipesServiceServer() {}
 func (UnimplementedRecipesServiceServer) testEmbeddedByValue()                        {}
@@ -130,6 +148,24 @@ func _RecipesService_GetRecipeForEquipment_Handler(srv interface{}, ctx context.
 	return interceptor(ctx, in, info, handler)
 }
 
+func _RecipesService_GetRecipeForResource_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRecipeForResourceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecipesServiceServer).GetRecipeForResource(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: RecipesService_GetRecipeForResource_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecipesServiceServer).GetRecipeForResource(ctx, req.(*GetRecipeForResourceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // RecipesService_ServiceDesc is the grpc.ServiceDesc for RecipesService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -140,6 +176,10 @@ var RecipesService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetRecipeForEquipment",
 			Handler:    _RecipesService_GetRecipeForEquipment_Handler,
+		},
+		{
+			MethodName: "GetRecipeForResource",
+			Handler:    _RecipesService_GetRecipeForResource_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

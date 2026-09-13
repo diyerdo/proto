@@ -27,6 +27,9 @@ option go_package = "github.com/diyerdo/proto/go/recipes/v1;recipes";
 service RecipesService {
   // GetRecipeForEquipment returns the recipe for the given equipment
   rpc GetRecipeForEquipment(GetRecipeForEquipmentRequest) returns (GetRecipeForEquipmentResponse);
+
+  // GetRecipeForResource returns the recipe for the given resource
+  rpc GetRecipeForResource(GetRecipeForResourceRequest) returns (GetRecipeForResourceResponse);
 }
 
 // GetRecipeForEquipmentRequest is the request for GetRecipeForEquipment
@@ -48,5 +51,13 @@ message Recipe {
 
 // GetRecipeForEquipmentResponse is the response for GetRecipeForEquipment
 message GetRecipeForEquipmentResponse {
+  repeated Recipe recipes = 1;
+}
+
+message GetRecipeForResourceRequest {
+  int32 resource_id = 1;
+}
+
+message GetRecipeForResourceResponse {
   repeated Recipe recipes = 1;
 }
