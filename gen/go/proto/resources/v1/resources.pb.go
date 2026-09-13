@@ -43,7 +43,7 @@ const (
 
 type GetResourceFromIdRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	ResourceId    string                 `protobuf:"bytes,1,opt,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
+	ResourceId    int32                  `protobuf:"varint,1,opt,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -78,11 +78,11 @@ func (*GetResourceFromIdRequest) Descriptor() ([]byte, []int) {
 	return file_proto_resources_v1_resources_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *GetResourceFromIdRequest) GetResourceId() string {
+func (x *GetResourceFromIdRequest) GetResourceId() int32 {
 	if x != nil {
 		return x.ResourceId
 	}
-	return ""
+	return 0
 }
 
 type Resource struct {
@@ -203,7 +203,7 @@ const file_proto_resources_v1_resources_proto_rawDesc = "" +
 	"\n" +
 	"\"proto/resources/v1/resources.proto\x12\fresources.v1\";\n" +
 	"\x18GetResourceFromIdRequest\x12\x1f\n" +
-	"\vresource_id\x18\x01 \x01(\tR\n" +
+	"\vresource_id\x18\x01 \x01(\x05R\n" +
 	"resourceId\"a\n" +
 	"\bResource\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
