@@ -29,6 +29,14 @@ protoc \
   --go-grpc_opt=paths=source_relative \
   proto/equipments/v1/equipments.proto
 
+echo "Generating go code for JobsService"
+protoc \
+  --go_out=gen/go \
+  --go-grpc_out=gen/go \
+  --go_opt=paths=source_relative \
+  --go-grpc_opt=paths=source_relative \
+  proto/jobs/v1/jobs.proto
+
 echo "Generating go code for RecipesService"
 protoc \
   --go_out=gen/go \
@@ -37,10 +45,10 @@ protoc \
   --go-grpc_opt=paths=source_relative \
   proto/recipes/v1/recipes.proto
 
-echo "Generating go code for JobsService"
+echo "Generating go code for ResourcesService"
 protoc \
   --go_out=gen/go \
   --go-grpc_out=gen/go \
   --go_opt=paths=source_relative \
   --go-grpc_opt=paths=source_relative \
-  proto/jobs/v1/jobs.proto
+  proto/resources/v1/resources.proto
